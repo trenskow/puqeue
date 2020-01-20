@@ -3,9 +3,27 @@
 module.exports = exports = class Queue {
 
 	constructor(options = {}) {
+		this._name = options.name;
 		this._maxOperationCount = options.maxOperationCount || 1;
 		this._operationCount = 0;
 		this._queue = [];
+	}
+
+	get name() {
+		return this._name;
+	}
+
+	get maxOperationCount() {
+		return this._maxOperationCount;
+	}
+
+	set maxOperationCount(maxOperationCount) {
+		this._maxOperationCount = maxOperationCount;
+		this._checkQueue();
+	}
+
+	get operationCount() {
+		return this._operationCount;
 	}
 
 	async add(todo) {
