@@ -7,27 +7,31 @@ A small JS library for queuing promises.
 
 # Use
 
-    const Puqeue = require('puqeue');
-    
-    const queue = new Puqeue();
-    
-    await queue.add(async () {
-        // My todo
-    });
+````javascript
+const Puqeue = require('puqeue');
+
+const queue = new Puqeue();
+
+await queue.add(async () {
+    // My todo
+});
+````
 
 You can await multiple promises in a queue by using `Promise.all`.
 
-    await Promise.all(
-        queue.add(async () {
-            console.info(1);
-        }),
-        queue.add(async () {
-            console.info(2);
-        }),
-        queue.add(async () {
-            console.info(3);
-        })
-    );
+````javascript
+await Promise.all(
+    queue.add(async () {
+        console.info(1);
+    }),
+    queue.add(async () {
+        console.info(2);
+    }),
+    queue.add(async () {
+        console.info(3);
+    })
+);
+````
 
 The above example will execute one at the time.
 
@@ -35,7 +39,9 @@ The above example will execute one at the time.
 
 You specify the maximum number of concurrent promises run with an option - default is one promise.
 
-    new Puqeue({ maxOperationCount: 2 });
+````javascript
+new Puqeue({ maxOperationCount: 2 });
+````
 
 > Use `0` to indicate no limit.
 
