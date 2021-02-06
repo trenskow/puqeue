@@ -25,37 +25,28 @@ await Promise.all(
         console.info(1);
     }),
     queue.add(async () {
-        console.info(2);
-    }),
-    queue.add(async () {
         console.info(3);
+    }, { priority: 100 }),
+    queue.add(async () {
+        console.info(2);
     })
 );
 ````
 
-The above example will execute one at the time.
+The above example will execute one at the time, but second operation will execute last due to priority.
+
+> Default priority is `10`.
 
 ## Options
 
-You specify the maximum number of concurrent promises run with an option - default is one promise.
+You specify the maximum number of concurrent promises run with an option.
 
 ````javascript
 new Puqeue({ maxOperationCount: 2 });
 ````
 
-> Use `0` to indicate no limit.
+> Use `0` to indicate no limit (default is `1`).
 
 # LICENSE
 
-Copyright 2020 Kristian Trenskow
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-
-1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-
-2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-
-3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
+See LICENSE.

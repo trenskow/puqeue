@@ -26,18 +26,35 @@ module.exports = exports = class Queue {
 		return this._operationCount;
 	}
 
-	async add(todo) {
-		return new Promise((resolv, reject) => {
+	async add(todo, options = {}) {
+
+		options.priority = options.priority || 10;
+
+		return new Promise((resolve, reject) => {
+
 			this._queue.push({
 				todo,
-				resolv,
-				reject
+				resolve,
+				reject,
+				options
 			});
+
+			this._queue.sort((item1, item2) => item1.options.priority - item2.options.priority);
+
 			this._checkQueue();
+
+		});
+
+	}
+
+	async waitAll(todo) {
+		return await this.add(todo, {
+			priority: Infinity
 		});
 	}
 
 	_checkQueue() {
+
 		if (this._queue.length > 0 && (!this._maxOperationCount || this._operationCount < this._maxOperationCount)) {
 
 			let queueItem = this._queue.shift();
@@ -48,17 +65,18 @@ module.exports = exports = class Queue {
 				this._checkQueue();
 			};
 
-			queueItem.todo()
+			Promise.resolve(typeof queueItem.todo === 'function' ? queueItem.todo() : queueItem.todo)
 				.then((...args) => {
 					done();
-					queueItem.resolv(...args);
+					queueItem.resolve(...args);
 				})
 				.catch((err) => {
 					done();
 					queueItem.reject(err);
 				});
-			
+
 		}
+
 	}
-	
+
 };

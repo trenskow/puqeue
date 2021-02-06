@@ -1,10 +1,10 @@
 {
   "name": "puqeue",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A small queue for promises.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha test"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/trenskow/puqeue/issues"
   },
-  "homepage": "https://github.com/trenskow/puqeue#readme"
+  "homepage": "https://github.com/trenskow/puqeue#readme",
+  "devDependencies": {
+    "chai": "^4.3.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^7.19.0",
+    "mocha": "^8.2.1"
+  }
 }
