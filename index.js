@@ -4,7 +4,7 @@ module.exports = exports = class Queue {
 
 	constructor(options = {}) {
 		this._name = options.name;
-		this._maxOperationCount = options.maxOperationCount || 1;
+		this._maxOperationCount = typeof options.maxOperationCount === 'number' ? options.maxOperationCount : 1;
 		this._operationCount = 0;
 		this._queue = [];
 	}
