@@ -1,6 +1,6 @@
 {
   "name": "puqeue",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A small queue for promises.",
   "main": "index.js",
   "scripts": {
@@ -22,9 +22,9 @@
   },
   "homepage": "https://github.com/trenskow/puqeue#readme",
   "devDependencies": {
-    "chai": "^4.3.0",
+    "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^7.19.0",
-    "mocha": "^8.2.1"
+    "eslint": "^8.2.0",
+    "mocha": "^9.1.3"
   }
 }
