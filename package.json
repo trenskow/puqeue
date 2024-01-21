@@ -3,6 +3,7 @@
   "version": "1.0.19",
   "description": "A small queue for promises.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha.js test"
   },

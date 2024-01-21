@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = exports = class Queue {
+export default class Queue {
 
 	constructor(options = {}) {
 		this._name = options.name;
@@ -79,4 +77,4 @@ module.exports = exports = class Queue {
 
 	}
 
-};
+}

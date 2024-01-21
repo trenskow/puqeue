@@ -1,12 +1,9 @@
-'use strict';
+import { use as useChai, expect } from 'chai';
+import chaiAsPromised from 'chai-as-promised';
 
-const
-	{ expect } = require('chai');
+useChai(chaiAsPromised);
 
-require('chai').use(require('chai-as-promised'));
-
-const
-	Puqeue = require('../');
+import Puqeue from '../index.js';
 
 describe('Puqeue', () => {
 	it ('should come back executed in correct order.', async () => {
