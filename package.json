@@ -1,6 +1,6 @@
 {
   "name": "puqeue",
-  "version": "1.0.19",
+  "version": "1.1.0",
   "description": "A small queue for promises.",
   "main": "index.js",
   "type": "module",
