@@ -1,6 +1,6 @@
 {
   "name": "puqeue",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A small queue for promises.",
   "main": "index.js",
   "type": "module",
@@ -28,7 +28,7 @@
     "eslint": "^8.56.0",
     "mocha": "^10.2.0"
   },
-	"overrides": {
-		"chai": "^5.0.0"
-	}
+  "overrides": {
+    "chai": "^5.0.0"
+  }
 }
